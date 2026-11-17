@@ -1,0 +1,15 @@
+# Bắt buộc theo đề bài
+streamlit>=1.40
+pandas>=2.1
+networkx>=3.2
+scikit-learn>=1.4
+matplotlib>=3.8
+google-generativeai>=0.8
+
+# Thu thập tự động từ cổng công khai HCMUS (Tab 2)
+requests>=2.31
+
+# Tuỳ chọn (có fallback nếu thiếu)
+openai>=1.40
+openpyxl>=3.1
+pytest>=8.0

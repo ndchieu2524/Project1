@@ -1,0 +1,11 @@
+{
+  "name": "smart-drl-extension-devtests",
+  "private": true,
+  "description": "Kiểm thử tự động content.js/popup.js bằng jsdom (KHÔNG cần cho việc cài extension)",
+  "scripts": {
+    "test": "node run_all.js"
+  },
+  "devDependencies": {
+    "jsdom": "^29.1.1"
+  }
+}

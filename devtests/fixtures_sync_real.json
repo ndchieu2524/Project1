@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0",
+  "sync_source": "HCMUS_CHROME_EXTENSION_V1",
+  "synced_at": "2026-11-14T15:29:55.815Z",
+  "is_demo": false,
+  "student_profile": {
+    "student_id": "25127302",
+    "full_name": "",
+    "faculty": "",
+    "semester": "HK1_2026_2027",
+    "current_total_score": null,
+    "score_type": "OFFICIAL_SYNCED"
+  },
+  "drl_progress": [],
+  "timetable": [
+    {
+      "course_code": "BAA00005",
+      "course_name": "Kinh tế đại cương",
+      "day_of_week": "Tuesday",
+      "start_time": "07:30",
+      "end_time": "11:10",
+      "room": "E402",
+      "campus": ""
+    },
+    {
+      "course_code": "BAA00021",
+      "course_name": "Thực tập 1",
+      "day_of_week": "Monday",
+      "start_time": "07:30",
+      "end_time": "11:10",
+      "room": "",
+      "campus": ""
+    },
+    {
+      "course_code": "CSC10008",
+      "course_name": "Mạng máy tính",
+      "day_of_week": "Tuesday",
+      "start_time": "13:30",
+      "end_time": "17:10",
+      "room": "B116",
+      "campus": ""
+    },
+    {
+      "course_code": "CSC10014",
+      "course_name": "Tư duy tính toán",
+      "day_of_week": "Monday",
+      "start_time": "13:30",
+      "end_time": "17:10",
+      "room": "C36",
+      "campus": ""
+    },
+    {
+      "course_code": "CSC10014",
+      "course_name": "Tư duy tính toán",
+      "day_of_week": "Friday",
+      "start_time": "07:30",
+      "end_time": "09:30",
+      "room": "152",
+      "campus": ""
+    },
+    {
+      "course_code": "MTH00006",
+      "course_name": "Vi tích phân 2",
+      "day_of_week": "Thursday",
+      "start_time": "07:30",
+      "end_time": "11:10",
+      "room": "E308",
+      "campus": ""
+    },
+    {
+      "course_code": "MTH00006",
+      "course_name": "Vi tích phân 2",
+      "day_of_week": "Thursday",
+      "start_time": "13:30",
+      "end_time": "15:30",
+      "room": "E307",
+      "campus": ""
+    }
+  ],
+  "extraction_meta": {
+    "notes": [
+      "Bảng \"Các môn đã đăng ký\" (CTĐB): 7 buổi học.",
+      "Học kỳ đang chọn: HK1_2026_2027.",
+      "MSSV nhận diện: 25127302."
+    ],
+    "warnings": []
+  }
+}

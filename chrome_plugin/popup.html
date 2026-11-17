@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Smart DRL Assistant – HCMUS Sync</title>
+  <link rel="stylesheet" href="popup.css" />
+  <style>
+    /* Chữ đậm trên nền sáng — tránh mất chữ khi trình duyệt dùng dark mode */
+    body {color: #0f172a;}
+    .status {color: #0f172a; background: #f1f5f9; border-radius: 8px;
+             padding: .45rem .6rem; font-size: .82rem;}
+    .status.status-ok {background: #dcfce7; color: #14532d;}
+    .status.status-err {background: #fee2e2; color: #7f1d1d;}
+    .status.status-idle {background: #f1f5f9; color: #334155;}
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-top">
+      <span class="logo">🎓</span>
+      <div>
+        <h1>Smart DRL Assistant</h1>
+        <p class="sub">HCMUS Sync · Chrome Extension v1.0</p>
+      </div>
+    </div>
+    <p class="privacy">
+      🔒 Không lưu mật khẩu · không vượt CAPTCHA · chỉ đọc DOM khi bạn đã tự đăng nhập
+    </p>
+  </header>
+
+  <main>
+    <!-- Trạng thái trang hiện tại -->
+    <section class="card">
+      <h2>1. Trạng thái trang</h2>
+      <div id="pageStatus" class="status status-idle">Đang kiểm tra trang hiện tại…</div>
+      <div id="urlBox" class="mono small"></div>
+      <details class="hint">
+        <summary>Quy trình đồng bộ (2 bước)</summary>
+        <ol>
+          <li>Mở <b>portal.ctdb.hcmus.edu.vn</b> → tự đăng nhập → mở trang <b>Thời khóa biểu</b> → bấm <b>Quét trang</b>.</li>
+          <li>Mở <b>hcmus.drl.vn</b> → tự đăng nhập → mở trang <b>Điểm rèn luyện</b> → bấm <b>Quét trang</b>.</li>
+          <li>Bấm <b>Xuất hcmus_sync.json</b> → tải file lên Web App (Tab 1) hoặc dán JSON.</li>
+        </ol>
+      </details>
+    </section>
+
+    <!-- Hành động quét -->
+    <section class="card">
+      <h2>2. Quét dữ liệu</h2>
+      <div class="btn-row">
+        <button id="scanBtn" class="btn btn-primary">🔄 Quét trang</button>
+        <button id="clearBtn" class="btn btn-ghost">🧹 Xoá dữ liệu tạm</button>
+      </div>
+      <div id="scanResult" class="status status-idle">Chưa quét.</div>
+      <ul id="notesList" class="notes"></ul>
+    </section>
+
+    <!-- Gói dữ liệu đã gom -->
+    <section class="card">
+      <h2>3. Gói dữ liệu <span id="payloadBadge" class="badge badge-off">Rỗng</span></h2>
+      <div class="grid-2">
+        <div class="kv"><span>TKB (môn học)</span><b id="statTimetable">0</b></div>
+        <div class="kv"><span>Tiêu chí ĐRL</span><b id="statCriteria">0</b></div>
+        <div class="kv"><span>Tổng điểm</span><b id="statTotal">—</b></div>
+        <div class="kv"><span>Học kỳ</span><b id="statSemester">—</b></div>
+      </div>
+      <label class="field">
+        <span>MSSV <i>(bắt buộc để xuất gói)</i></span>
+        <input id="studentId" type="text" placeholder="VD: 25127302" autocomplete="off" />
+      </label>
+      <label class="field">
+        <span>Học kỳ</span>
+        <input id="semester" type="text" placeholder="VD: HK1_2026_2027" autocomplete="off" />
+      </label>
+      <label class="field">
+        <span>Cơ sở mặc định <i>(bảng CTĐB không ghi cơ sở)</i></span>
+        <select id="defaultCampus">
+          <option value="">— Không xác định (để trống) —</option>
+          <option value="NVC">Nguyễn Văn Cừ (Q.5)</option>
+          <option value="Linh Trung">Linh Trung (Thủ Đức)</option>
+          <option value="Online">Trực tuyến</option>
+        </select>
+      </label>
+      <pre id="jsonPreview" class="json-preview mono">(chưa có dữ liệu)</pre>
+      <div class="btn-row">
+        <button id="exportBtn" class="btn btn-success">⬇️ Xuất hcmus_sync.json</button>
+        <button id="copyBtn" class="btn">📋 Copy JSON</button>
+      </div>
+      <div id="exportMsg" class="status status-idle"></div>
+    </section>
+
+  </main>
+
+  <footer>
+    <span>Không gửi dữ liệu ra server nào · mọi thứ chạy cục bộ trong trình duyệt</span>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

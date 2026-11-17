@@ -1,0 +1,52 @@
+{
+  "manifest_version": 3,
+  "name": "Smart DRL Assistant – HCMUS Sync (MVP)",
+  "version": "1.0.0",
+  "description": "Đồng bộ Thời khóa biểu CTĐB và Điểm rèn luyện hcmus.drl.vn sang Smart DRL Assistant. Chỉ đọc DOM khi bạn đã tự đăng nhập – KHÔNG lưu mật khẩu, KHÔNG vượt CAPTCHA.",
+  "minimum_chrome_version": "102",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "downloads",
+    "clipboardWrite"
+  ],
+  "host_permissions": [
+    "https://hcmus.drl.vn/*",
+    "https://portal.ctdb.hcmus.edu.vn/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Smart DRL Assistant – HCMUS Sync",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://portal.ctdb.hcmus.edu.vn/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://hcmus.drl.vn/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
